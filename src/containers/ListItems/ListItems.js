@@ -15,14 +15,24 @@ export default () => {
   });
 
   function deleteItem(id) {
-    const newItems = {...items};
+    const newItems = { ...items };
     delete newItems[id];
     setItems(newItems);
   }
-  
+
+  function toggleCompleteItem(id) {
+    const newItems = { ...items };
+    newItems[id].completed = !newItems[id].completed ;
+    setItems(newItems);
+  }
+
   return (
     <div className={classes.ListItems}>
-      <Items items={items}  deleteItem={deleteItem}/>
+      <Items
+        items={items}
+        deleteItem={deleteItem}
+        toggleCompleteItem={toggleCompleteItem}
+      />
     </div>
   );
 };
