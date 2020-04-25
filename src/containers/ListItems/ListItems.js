@@ -22,7 +22,7 @@ export default () => {
 
   function toggleCompleteItem(id) {
     const newItems = { ...items };
-    newItems[id].completed = !newItems[id].completed ;
+    newItems[id].completed = !newItems[id].completed;
     setItems(newItems);
   }
 
