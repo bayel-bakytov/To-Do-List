@@ -13,10 +13,16 @@ export default () => {
       completed: true,
     },
   });
+
+  function deleteItem(id) {
+    const newItems = {...items};
+    delete newItems[id];
+    setItems(newItems);
+  }
   
   return (
     <div className={classes.ListItems}>
-      <Items items={items} />
+      <Items items={items}  deleteItem={deleteItem}/>
     </div>
   );
 };
