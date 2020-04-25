@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./ListItems.module.css";
+import Items from "../../components/Items/Items";
 
 export default () => {
   const [items, setItems] = useState({
@@ -12,12 +13,10 @@ export default () => {
       completed: true,
     },
   });
-  const itemsOutput = Object.keys(items).map((key) => {
-    return (<li>{items[key].text}</li>);
-  });
+  
   return (
     <div className={classes.ListItems}>
-      <ul>{itemsOutput}</ul>
+      <Items items={items} />
     </div>
   );
 };
