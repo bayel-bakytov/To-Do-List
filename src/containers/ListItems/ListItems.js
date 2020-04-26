@@ -9,9 +9,11 @@ export default () => {
   const [items, setItems] = useState(null);
 
   function deleteItem(id) {
-    const newItems = { ...items };
-    delete newItems[id];
-    setItems(newItems);
+    axios.delete("items/" + id + ".json").then((response) => {
+      const newItems = { ...items };
+      delete newItems[id];
+      setItems(newItems);
+    });
   }
 
   function toggleCompleteItem(id) {
