@@ -33,7 +33,7 @@ export default () => {
     axios.get("/items.json").then((response) => setItems({ ...response.data }));
   }, []);
 
-  const itemsOutput = <Loading />;
+  let itemsOutput = <Loading />;
   if (items !== null) {
     itemsOutput = (
       <Items
